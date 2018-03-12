@@ -4,7 +4,7 @@
   var number = document.getElementById("number");
   var start = document.getElementById("start");
 
-  const TIMELIMIT = 9000;
+  const TIMELIMIT = 900000;
 
   var isPlaying = false;
   var isPaused = false;
