@@ -72,7 +72,7 @@
     }
   };
 
-  function shuffle(array) {
+  var shuffle = function(array) {
     let n = array.length, t, i;
     while (n) {
       i = Math.floor(Math.random() * n--);
@@ -83,17 +83,17 @@
     return array;
   }
 
-  function generateNumArray() {
+  var generateNumArray = function() {
     for (let i = 0; i < 4; i++) {
       for (let j = 2; j <= 10; j++) {
-        nums.push(j.toString());
+        nums.push(j);
       }
       nums.push("J");
     }
     shuffle(nums);
   }
 
-  function updateNumber() {
+  var updateNumber = function() {
     if (numPos >= nums.length) {
       nums = [];
       generateNumArray();
@@ -106,7 +106,7 @@
     }
   }
 
-  function updateTimer(t) {
+  var updateTimer = function(t) {
     var d = new Date(t);
     var m = d.getMinutes();
     var s = d.getSeconds();
@@ -123,11 +123,13 @@
     }
   }
 
-  function countDown(timeToCountDown) {
+  var countDown = function(timeToCountDown) {
     timerId = setTimeout(function() {
       timeLeft = timeToCountDown - (Date.now() - startTime);
       if (timeLeft < 0) {
         isPlaying = false;
+        let winner = workingTimer === "player1Timer" ? "右側のプレイヤー" : "左側のプレイヤー";
+        alert(`勝者は${winner}です！`);
         workingTimer = "";
         clearTimeout(timerId);
         ButtonState.init();
