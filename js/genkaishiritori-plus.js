@@ -298,6 +298,4 @@
   generateNumArray();
   start.focus();
 
-  console.log(nums);
-
 })();
