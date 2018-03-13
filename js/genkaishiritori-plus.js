@@ -63,6 +63,9 @@
         if (numDown === null) {
           break;
         } else if (numDown) {
+          numDown = numDown.replace(/[０-９]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 65248)
+          });
           if(numDown.match(/^[1-9]$/)) {
             this.isDownNumButtonUsed = true;
             f = true;
