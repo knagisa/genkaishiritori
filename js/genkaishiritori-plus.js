@@ -80,9 +80,10 @@
         }
       }
       if (f) {
-        let newNum = currentNum - Number(numDown);
+        let intNumDown = parseInt(numDown, 10)
+        let newNum = currentNum - intNumDown;
         number.value = newNum;
-        let nextNum = (nums[numPos+1] === 'J') ? (11 + Number(numDown)) : (nums[numPos+1] + Number(numDown));
+        let nextNum = (nums[numPos+1] === 'J') ? (11 + intNumDown) : (nums[numPos+1] + intNumDown);
         nums[numPos+1] = (nextNum >= 11) ? 'J' : nextNum;
       }
     }
@@ -296,5 +297,7 @@
   number.value = "";
   generateNumArray();
   start.focus();
+
+  console.log(nums);
 
 })();
