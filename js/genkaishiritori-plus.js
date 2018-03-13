@@ -66,7 +66,12 @@
           numDown = numDown.replace(/[０-９]/g, function(s) {
             return String.fromCharCode(s.charCodeAt(0) - 65248)
           });
-          let reg = new RegExp("^[1-" + (currentNum - 2) + "]$");
+          let reg;
+          if (currentNum === 3) {
+            reg = new RegExp('^1$');
+          } else {
+            reg = new RegExp('^[1-' + (currentNum - 2) + ']$');
+          }
           if(numDown.match(reg)) {
             this.isDownNumButtonUsed = true;
             f = true;
